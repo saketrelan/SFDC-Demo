@@ -1,0 +1,23 @@
+<apex:page controller="custOpp">
+  <apex:form >
+   <apex:pageBlock >
+       <apex:pageBlockSection collapsible="true">
+       <apex:selectList id="stages" multiselect="false" value="{!stages}" size="1">
+          <apex:selectOption itemLabel="Qualification" itemValue="Qualification"></apex:selectOption>
+          <apex:selectOption itemLabel="Closed Won" itemValue="Closed Won"></apex:selectOption>
+          <apex:selectOption itemLabel="Closed Lost" itemValue="Closed Lost"></apex:selectOption>
+          <apex:selectOption itemLabel="Negotiation/Review" itemValue="Negotiation/Review"></apex:selectOption>
+        </apex:selectList>
+        <apex:commandButton value="Submit" action="{!submit}"/>
+       </apex:pageBlockSection>
+        <apex:pageBlockTable value="{!OpportunityList}" var="opp">
+         <apex:column value="{!opp.Name}"/>
+         <apex:column value="{!opp.AccountId}"/>
+         <apex:column value="{!opp.CloseDate}"/>
+         <apex:column value="{!opp.Probability}"/>
+        </apex:pageBlockTable>
+        
+
+   </apex:pageBlock>
+  </apex:form>
+</apex:page>
